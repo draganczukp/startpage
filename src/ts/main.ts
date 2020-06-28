@@ -1,8 +1,13 @@
-type StringMap = Map<string, string>;
-type StringMapMap = Map<string, StringMap>;
+interface Links {
+	[title: string]: string
+};
+
+interface LinkGroup {
+	[category: string]: Links;
+}
 
 interface Config {
-	links: StringMapMap;
+	links: LinkGroup;
 }
 
 const config = {
@@ -11,35 +16,65 @@ const config = {
 			"YouTube": "https://youtube.com/feed/subscriptions",
 			"Netflix": "https://netflix.com",
 			"Reddit": "https://reddit.com",
-			"Imgur": "https://imgur.com",
 			"Twitter": "https://twitter.com",
-			"Anime": "https://anime-odcinki.pl"
+			"Imgut": "https://imgur.com"
 		},
 		"Misc": {
 			"GMail": "https://mail.google.com",
 			"Cloud": "https://cloud.draganczuk.tk",
+			"Migadu": "https://webmail.migadu.com",
 			"Messenger": "https://messenger.com"
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
 			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=21422",
-			"Studnet": "https://webapps.uz.zgora.pl/studnet/"
+			"Studnet": "https://webapps.uz.zgora.pl/studnet/",
+			"Classroom": "https://classroom.google.com/u/1/h"
 		},
 		"Dev": {
-			"localhost:8000": "http://localhost:8000",
 			"Github": "https://github.com/",
-			"Projekt": "https://app.zenhub.com/workspaces/projekt-5d9c5e8de81af90001ae3513/board?repos=212521279,212541220",
-			"MDN": "https://developer.mozilla.org/en-US/",
-			"DigitalOcean": "https://cloud.digitalocean.com"
-		},
-		"Linux": {
-			"/r/Linux": "https://reddit.com/r/linux",
-			"sed tutorial": "http://www.grymoire.com/Unix/Sed.html",
-			"Distrowatch": "https:distrowatch.com"
+			"Hosting": "https://cloud.hetzner.com/",
+			"Docker": "https://hub.docker.com"
 		}
 	}
 };
+
 let listDiv: HTMLDivElement;
+
+const createColumnDiv = (): HTMLDivElement => {
+	const elt: HTMLDivElement = document.createElement("div");
+	elt.classList.add("link-list");
+	return elt;
+}
+
+const createColumnHeader = (text: string) => {
+	const elt: HTMLHeadingElement = document.createElement("h3");
+	elt.innerText = text;
+	return elt;
+}
+
+const createList = (links: Links): HTMLUListElement => {
+
+	const list: HTMLUListElement = document.createElement("ul");
+
+	for(const link in links){
+		let li = document.createElement("li");
+		li.innerHTML = `<a href="${links[link]}">${link}</a>`;
+		list.appendChild(li);
+	}
+
+	return list;
+}
+
+const createColumns = (key: string) => {
+	const column = createColumnDiv();
+	const header = createColumnHeader(key);
+	const list = createList(config.links[key]);
+
+	column.appendChild(header);
+	column.appendChild(list);
+	listDiv.appendChild(column);
+}
 
 (async ()=>{
 	listDiv = document.getElementById("links")! as HTMLDivElement;
@@ -47,24 +82,8 @@ let listDiv: HTMLDivElement;
 	let keys: string[] = [];
 
 	for(let key in config.links)
-		keys.push(key);
+		createColumns(key);
 
-	for(const key of keys){
-		let linkList: HTMLDivElement = document.createElement("div");
-		linkList.classList.add("link-list");
-		let linkTitle: HTMLHeadingElement = document.createElement("h3");
-		linkTitle.innerText = key;
-		linkList.appendChild(linkTitle);
-		let list: HTMLUListElement = document.createElement("ul");
 
-		let links: StringMap = config.links[key];
-		for(const link in links){
-			let li = document.createElement("li");
-			li.innerHTML = `<a href="${links[link]}">${link}</a>`;
-			list.appendChild(li);
-		}
-		linkList.appendChild(list);
-		listDiv.appendChild(linkList);
-	}
 })();
 

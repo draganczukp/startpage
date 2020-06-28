@@ -1,58 +1,64 @@
-// @import '/home/killermenpl/.cache/wal/colors.scss';
-$bg: #0a0a0a;
+$bg: #555555;
 $darker: darken($bg, 10%);
 $text: #fafafa;
 
-body{
+* {
+	box-sizing: border-box;
+	transition: all .5s;
+}
+
+html, body{
 	font-family: "SFNS Display";
 	background-color: $bg;
 	color: $text;
+	width: 100%;
+	height: 100%;
 }
 
+
 #links{
-	margin-top: 25px;
+	margin-top: 20%;
+	height: 50%;
+	// position: relative;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 80%;
 	grid-row-gap: 20px;
+	align-items: center;
+}
 
+.link-list{
+	width: 90%;
+	text-align: center;
+	box-shadow: 5px 5px 5px 1px $darker;
 
-	.link-list{
-		width: 90%;
-		margin: auto;
-		margin-top: 0;
-		text-align: center;
-		// box-shadow: 3px 3px 1px 1px $darker;
-		border: solid 1px lighten($bg, 7%);
+	background-color: $darker;
 
-		background-color: $darker;
+	h3{
+		background: lighten($darker, 3%);
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		margin: 0;
+		padding: 0;
+	}
 
-		h3{
-			background: lighten($darker, 3%);
-			border-bottom: solid 1px lighten($darker, 10%);
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		width: 100%;
+
+		li{
 			width: 100%;
-			height: 50px;
-			line-height: 50px;
-			margin: 0;
-			padding: 0;
-		}
 
-		ul{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-
-			width: 100%;
-			li{
+			a{
+				display: block;
 				width: 100%;
-				a{
-					display: block;
-					width: 100%;
-					height: 40px;
-					line-height: 40px;
-					color: $text;
-					text-decoration: none;
-				}
-
+				height: 40px;
+				line-height: 40px;
+				color: $text;
+				text-decoration: none;
 			}
 		}
 	}
