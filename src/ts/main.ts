@@ -10,34 +10,7 @@ interface Config {
 	links: LinkGroup;
 }
 
-const config = {
-	"links": {
-		"Fun": {
-			"YouTube": "https://youtube.com/feed/subscriptions",
-			"Netflix": "https://netflix.com",
-			"Reddit": "https://reddit.com",
-			"Twitter": "https://twitter.com",
-			"Imgut": "https://imgur.com"
-		},
-		"Misc": {
-			"GMail": "https://mail.google.com",
-			"Cloud": "https://cloud.draganczuk.tk",
-			"Migadu": "https://webmail.migadu.com",
-			"Messenger": "https://messenger.com"
-		},
-		"Studia": {
-			"Materiały": "https://url.draganczuk.tk/materialy",
-			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=21422",
-			"Studnet": "https://webapps.uz.zgora.pl/studnet/",
-			"Classroom": "https://classroom.google.com/u/1/h"
-		},
-		"Dev": {
-			"Github": "https://github.com/",
-			"Hosting": "https://cloud.hetzner.com/",
-			"Docker": "https://hub.docker.com"
-		}
-	}
-};
+let config: Config;
 
 let listDiv: HTMLDivElement;
 
@@ -77,9 +50,8 @@ const createColumns = (key: string) => {
 }
 
 (async ()=>{
+	config = await (await fetch("/config.json")).json();
 	listDiv = document.getElementById("links")! as HTMLDivElement;
-
-	let keys: string[] = [];
 
 	for(let key in config.links)
 		createColumns(key);

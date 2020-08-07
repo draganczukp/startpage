@@ -2,24 +2,27 @@
 	"links": {
 		"Fun": {
 			"YouTube": "https://youtube.com/feed/subscriptions",
+			"Netflix": "https://netflix.com",
 			"Reddit": "https://reddit.com",
-			"Imgur": "https://imgur.com"
+			"Twitter": "https://twitter.com",
+			"Imgut": "https://imgur.com"
+		},
+		"Misc": {
+			"GMail": "https://mail.google.com",
+			"Cloud": "https://cloud.draganczuk.tk",
+			"Migadu": "https://webmail.migadu.com",
+			"Messenger": "https://messenger.com"
 		},
 		"Studia": {
 			"Materiały": "https://url.draganczuk.tk/materialy",
-			"Egzaminy": "http://25infsp.tk/egzaminy.php",
-			"Studnet": "https://webapps.uz.zgora.pl/studnet/"
+			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=21422",
+			"Studnet": "https://webapps.uz.zgora.pl/studnet/",
+			"Classroom": "https://classroom.google.com/u/1/h"
 		},
 		"Dev": {
-			"localhost:8000": "http://localhost:8000",
 			"Github": "https://github.com/",
-			"D&G GitLab": "https://gitlab.com/devandgamesuz/",
-			"MDN": "https://developer.mozilla.org/en-US/"
-		},
-		"Linux": {
-			"/r/Linux": "https://reddit.com/r/unixporn",
-			"sed": "http://www.grymoire.com/Unix/Sed.html",
-			"Distrowatch": "https:distrowatch.com"
+			"Hosting": "https://cloud.hetzner.com/",
+			"Docker": "https://hub.docker.com"
 		}
 	}
 }
