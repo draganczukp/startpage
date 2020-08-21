@@ -1,0 +1,20 @@
+version: "3"
+services:
+    startpage:
+        build: .
+        container_name: startpage
+        networks:
+            - proxy
+        restart: unless-stopped
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.startpage.entrypoints=https"
+            - "traefik.http.routers.startpage.rule=Host(`startpage.draganczuk.cloud`)"
+            - "traefik.http.routers.startpage.tls=true"
+            # - "traefik.http.routers.startpage.tls.certresolver=acme"
+            - "traefik.http.services.startpage.loadbalancer.server.port=80"
+
+
+networks:
+    proxy:
+        external: true
