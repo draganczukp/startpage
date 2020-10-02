@@ -5,17 +5,15 @@
 			"Netflix": "https://netflix.com",
 			"Reddit": "https://reddit.com",
 			"Twitter": "https://twitter.com",
-			"Imgut": "https://imgur.com"
+			"Imgur": "https://imgur.com"
 		},
 		"Misc": {
+			"Cloud": "https://draganczuk.cloud",
 			"GMail": "https://mail.google.com",
-			"Cloud": "https://cloud.draganczuk.tk",
-			"Migadu": "https://webmail.migadu.com",
 			"Messenger": "https://messenger.com"
 		},
 		"Studia": {
-			"Materiały": "https://url.draganczuk.tk/materialy",
-			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=21422",
+			"Plan": "http://www.plan.uz.zgora.pl/grupy_plan.php?pId_Obiekt=22652",
 			"Studnet": "https://webapps.uz.zgora.pl/studnet/",
 			"Classroom": "https://classroom.google.com/u/1/h"
 		},
